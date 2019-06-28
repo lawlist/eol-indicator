@@ -45,8 +45,7 @@
     (goto-char window-end)
     (while (re-search-backward "\n" window-start t)
       (let ((pbol (point-at-bol))
-            (peol (point))
-            (col-eovl (col-at-eovl)))
+            (peol (point)))
         (when
           (or
             (< opoint pbol)
