@@ -37,9 +37,7 @@
       (remove-overlays (point-min) (point-max) 'after-string description)))
   (setq my-eol-ruler (concat pilcrow-underlined underline))
   (setq my-eol-pilcrow pilcrow)
-  (save-excursion
-    (end-of-line)
-    (overlay-put (make-overlay (point) (point)) 'after-string my-eol-ruler))
+  (overlay-put (make-overlay (line-end-position) (line-end-position)) 'after-string my-eol-ruler)
   (save-excursion
     (goto-char window-end)
     (while (re-search-backward "\n" window-start t)
