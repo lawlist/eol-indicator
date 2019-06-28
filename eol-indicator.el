@@ -26,7 +26,7 @@
                        'cursor t))
          (pilcrow-underlined
            (propertize (char-to-string ?\u00B6)
-                       'face '(:foreground "white" :underline "blue")
+                       'face '(:foreground "RoyalBlue" :underline "blue")
                        'cursor t))
          (underline (propertize (char-to-string ?\u2009)
                                 'display `(space :width ,my-current-line-length)
