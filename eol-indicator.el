@@ -17,7 +17,7 @@
   (when (or my-eol-ruler my-eol-pilcrow)
     (dolist (description `(,my-eol-ruler ,my-eol-pilcrow))
       (remove-overlays (point-min) (point-max) 'after-string description)))
-  (let* ((opoint (point))
+  (let* ((opoint-peol (line-end-position))
          (window-width (window-width))
          (window-start (window-start))
          (window-end (window-end nil t))
@@ -41,10 +41,8 @@
     (save-excursion
       (goto-char window-end)
       (while (re-search-backward "\n" window-start t)
-        (let ((pbol (point-at-bol))
-              (peol (point)))
-          (when (or (< opoint pbol)
-                    (> opoint peol))
+        (let ((peol (line-end-position)))
+          (when (not (= peol opoint-peol))
             (overlay-put (make-overlay peol peol) 'after-string my-eol-pilcrow)))))))
 
 (add-hook 'post-command-hook 'my-eol-ruler-function)
