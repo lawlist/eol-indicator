@@ -23,7 +23,9 @@
            (window-start (window-start))
            (window-end (window-end nil t))
            (col-eovl (col-at-eovl))
-           (my-current-line-length (- (- window-width col-eovl) 3))
+           (my-current-line-length (if (not (= opoint-peol (point-max)))
+                                     (- (- window-width col-eovl) 3)
+                                     (- (- window-width col-eovl) 2)))
            (pilcrow
              (propertize (char-to-string ?\u00B6)
                          'face '(:foreground "red")
@@ -36,7 +38,9 @@
                                   'display `(space :width ,my-current-line-length)
                                   'face '(:underline "blue")
                                   'cursor t)))
-      (setq my-eol-ruler (concat pilcrow-underlined underline))
+      (setq my-eol-ruler (if (not (= opoint-peol (point-max)))
+                           (concat pilcrow-underlined underline)
+                           underline))
       (setq my-eol-pilcrow pilcrow)
       (overlay-put (make-overlay (line-end-position) (line-end-position)) 'after-string my-eol-ruler)
       (save-excursion
