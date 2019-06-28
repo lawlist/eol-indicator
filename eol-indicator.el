@@ -46,10 +46,9 @@
     (while (re-search-backward "\n" window-start t)
       (let ((pbol (point-at-bol))
             (peol (point)))
-        (when (or
-                (< opoint pbol)
-                (> opoint peol))
-        (overlay-put (make-overlay peol peol) 'after-string my-eol-pilcrow)))))))
+        (when (or (< opoint pbol)
+                  (> opoint peol))
+          (overlay-put (make-overlay peol peol) 'after-string my-eol-pilcrow)))))))
 
 (add-hook 'post-command-hook 'my-eol-ruler-function)
 
