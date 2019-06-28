@@ -42,7 +42,7 @@
                            (concat pilcrow-underlined underline)
                            underline))
       (setq my-eol-pilcrow pilcrow)
-      (overlay-put (make-overlay (line-end-position) (line-end-position)) 'after-string my-eol-ruler)
+      (overlay-put (make-overlay opoint-peol opoint-peol) 'after-string my-eol-ruler)
       (save-excursion
         (goto-char window-end)
         (while (re-search-backward "\n" window-start t)
