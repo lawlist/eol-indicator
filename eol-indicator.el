@@ -34,7 +34,7 @@
                'cursor t)))
   (when (or my-eol-ruler my-eol-pilcrow)
     (dolist (description `(,my-eol-ruler
-                           ,my-eol-pilcrow ))
+                           ,my-eol-pilcrow))
       (remove-overlays (point-min) (point-max) 'after-string description)))
   (setq my-eol-ruler (concat pilcrow-underlined underline))
   (setq my-eol-pilcrow pilcrow)
