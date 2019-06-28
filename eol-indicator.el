@@ -24,8 +24,8 @@
            (window-end (window-end nil t))
            (col-eovl (col-at-eovl))
            (my-current-line-length (if (not (= opoint-peol (point-max)))
-                                     (- (- window-width col-eovl) 3)
-                                     (- (- window-width col-eovl) 2)))
+                                     (- (- window-width col-eovl) 2)
+                                     (- (- window-width col-eovl) 1)))
            (pilcrow
              (propertize (char-to-string ?\u00B6)
                          'face '(:foreground "red")
