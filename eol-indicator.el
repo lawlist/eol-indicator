@@ -1,4 +1,4 @@
-
+(defvar my-eol-ruler nil
 "A horizontal ruler stretching from eol (end of line) to the window edge.")
 (make-variable-buffer-local 'my-eol-ruler)
 
